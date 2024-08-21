@@ -1,0 +1,13 @@
+{
+    "name": "Archetypical Software Organization Workflow",
+    "description": "Archetypical Software Organization CI workflow template.",
+    "iconName": "archetypical-icon",
+    "categories": [
+        "continuous-integration"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
