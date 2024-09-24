@@ -1,0 +1,14 @@
+{
+    "name": "SemVer",
+    "description": "Add SemVer validation and bump to your repository.",
+    "iconName": "archetypical-icon",
+    "categories": [
+        "continuous-integration",
+        "semver"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Generic Build",
+    "description": "Build and publish any application.",
+    "iconName": "archetypical-icon",
+    "categories": [
+        "continuous-integration",
+        "semver"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
