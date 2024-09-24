@@ -1,0 +1,39 @@
+name: Build
+on:
+  push: 
+    branches: [ $default-branch ]
+  pull_request:
+    types: [labeled, unlabeled, opened, edited, reopened, synchronize, ready_for_review]
+    branches: [$default-branch]
+
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  semver-validate-bump:
+    name: Semver
+    uses: ArchetypicalSoftware/github-workflows/.github/workflows/semver.yml@main
+    permissions:
+      contents: write
+      pull-requests: read
+    secrets: inherit
+
+  app-build:
+    name: App
+    runs-on: ubuntu-latest
+    needs:
+    - semver-validate-bump
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build app
+        run: |
+          echo "Build the app"
+          
+          publish=${{ (github.event_name == 'push' && github.ref_name == '$default-branch' && github.ref_type == 'branch') && 'true' || 'false' }}
+          if [[ $publish == 'true' ]]; then
+            echo "Publish the app"
+          fi
